@@ -118,6 +118,7 @@ def agent_loop(messages: list):
             tools=TOOLS, max_tokens=8000,
         )
         messages.append({"role": "assistant", "content": response.content})
+        print(f"\033[32m响应：{response}\033[0m")
         if response.stop_reason != "tool_use":
             return
         results = []

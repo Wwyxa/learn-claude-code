@@ -86,6 +86,7 @@ def agent_loop(messages: list):
         )
         # Append assistant turn
         messages.append({"role": "assistant", "content": response.content})
+        print(f"\033[32m响应：{response}\033[0m")
         # If the model didn't call a tool, we're done
         if response.stop_reason != "tool_use":
             return
